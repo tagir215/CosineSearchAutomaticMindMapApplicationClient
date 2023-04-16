@@ -1,0 +1,29 @@
+.input-field-div{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: fixed;
+    left:50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    width: 100%;
+    top:0;
+    z-index: 1000;
+}
+.input-field{
+    width: 900px;
+    max-width: 700px;
+    font-size: large;
+    align-self: center;
+    
+}
+.input-field-result{
+    font-size:20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+.output-a{
+    display:block;
+    font-size: 20px;
+}
