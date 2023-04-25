@@ -8,7 +8,7 @@ export default function({lines}){
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
         
-        context.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--primary-color');;
+        context.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--secondary-color');;
         context.lineWidth=1;
         context.lineCap = 'round'; // pyöristä linjan päät
         context.imageSmoothingEnabled = false; // käytä anti-aliasingia
