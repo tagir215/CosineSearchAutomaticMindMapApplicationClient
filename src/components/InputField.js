@@ -6,7 +6,7 @@ import Tree from './Tree.js';
 export default function InputField(){
     const  [ values ,setValues ] = useState([]);
     const [text,setText] = useState("");
-    const baseURL = "https://csamma.herokuapp.com";
+    const baseURL = "https://csamma.herokuapp.com:5000";
     const handleChange = function(event){
         setText(event.target.value);
     }
