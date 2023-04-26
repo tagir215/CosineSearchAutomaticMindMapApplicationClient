@@ -11,13 +11,7 @@ export default function InputField(){
         setText(event.target.value);
     }
 
-    const init = function(process){
-        fetch(baseURL +"/init/"+process)
-        .then(response => response.text())
-        .then(data => {
-            setInitState(data);
-        })
-    }
+  
 
     const handleClick = function(){
         fetch(baseURL +"/search/"+text)
@@ -36,7 +30,6 @@ export default function InputField(){
         }
       };
 
-    init("initWebPages");
 
     return(
         <div>
