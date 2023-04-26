@@ -48,7 +48,7 @@ export default function InputField(){
             <input className="input-field" type="text" onChange={handleChange} onKeyUp={handleKeyPress}/>
             <input type="button" onClick={handleClick} value={"search"} />
         </div>
-        <span>{initState}</span>
+        <span className='aa5'>{initState}</span>
         <Tree arr={values}/>
         </div>
     )
