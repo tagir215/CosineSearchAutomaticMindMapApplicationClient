@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './InputField.css'
 import Tree from './Tree.js';
 
@@ -39,7 +39,9 @@ export default function InputField(){
             setInitState(data);
         })
     }
-    init();
+    useEffect(()=>{
+        init();
+    },[])
     return(
         <div>
         <div className="input-field-div">
