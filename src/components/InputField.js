@@ -6,6 +6,7 @@ export default function InputField(){
     const  [ values ,setValues ] = useState([]);
     const [text,setText] = useState("");
     const [initState, setInitState] = useState("starting...");
+    const [displayState, setDisplayState] = useState("block");
     const baseURL = "https://csamma.herokuapp.com";
     const handleChange = function(event){
         setText(event.target.value);
@@ -37,6 +38,9 @@ export default function InputField(){
         .then(response => response.text())
         .then(data =>{
             setInitState(data);
+            setTimeout(()=>{
+                setDisplayState("none");
+            },1000);
         })
     }
     useEffect(()=>{
@@ -44,11 +48,13 @@ export default function InputField(){
     },[])
     return(
         <div>
+        <div className='loading-screen' style={{display:`${displayState}`}}>
+            <span className='loading-span'>{initState}</span>
+        </div>
         <div className="input-field-div">
             <input className="input-field" type="text" onChange={handleChange} onKeyUp={handleKeyPress}/>
             <input type="button" onClick={handleClick} value={"search"} />
         </div>
-        <span className='aa5'>{initState}</span>
         <Tree arr={values}/>
         </div>
     )
