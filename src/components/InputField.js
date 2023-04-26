@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
 import './InputField.css'
-import Node from "./Node.js"
 import Tree from './Tree.js';
 
 export default function InputField(){
     const  [ values ,setValues ] = useState([]);
     const [text,setText] = useState("");
+    const [initState , setInitState ] = useState("starting...");
     const baseURL = "https://csamma.herokuapp.com";
     const handleChange = function(event){
         setText(event.target.value);
     }
-    const handleClick = function(event){
+
+    const init = function(process){
+        fetch(baseURL +"/init/"+process)
+        .then(response => response.text())
+        .then(data => {
+            setInitState(data);
+            if(data=="done0"){init("initEmbeddings")}
+        })
+    }
+
+    const handleClick = function(){
         fetch(baseURL +"/search/"+text)
         .then(response => response.text())
         .then(data => {
@@ -18,12 +28,8 @@ export default function InputField(){
             setValues(urls);
         }
     )}
-    function buildTree(urls){
-        const root = new Node(null,null);
-        for(let i=0; i<urls.length; i++){
 
-        }
-    }
+  
 
     const handleKeyPress = (event) => {
         if (event.keyCode === 13) { 
@@ -31,12 +37,15 @@ export default function InputField(){
         }
       };
 
+    init("initWebPages");
+
     return(
         <div>
         <div className="input-field-div">
             <input className="input-field" type="text" onChange={handleChange} onKeyUp={handleKeyPress}/>
             <input type="button" onClick={handleClick} value={"search"} />
         </div>
+        <h1>{initState}</h1>
         <Tree arr={values}/>
         </div>
     )
