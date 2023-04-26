@@ -33,7 +33,7 @@ export default function InputField(){
       };
 
     const init = function(){
-        fetch(baseURL + "/init/ok")
+        fetch(baseURL + "/init/")
         .then(response => response.text())
         .then(data =>{
             setInitState(data);
