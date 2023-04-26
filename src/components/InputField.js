@@ -16,7 +16,6 @@ export default function InputField(){
         .then(response => response.text())
         .then(data => {
             setInitState(data);
-            if(data=="done0"){init("initEmbeddings")}
         })
     }
 
@@ -37,6 +36,7 @@ export default function InputField(){
         }
       };
 
+    init("initWebPages");
 
     return(
         <div>
@@ -44,7 +44,7 @@ export default function InputField(){
             <input className="input-field" type="text" onChange={handleChange} onKeyUp={handleKeyPress}/>
             <input type="button" onClick={handleClick} value={"search"} />
         </div>
-        <h1>{initState}</h1>
+        <h1 style={{color:"black"}}>{initState}</h1>
         <Tree arr={values}/>
         </div>
     )
