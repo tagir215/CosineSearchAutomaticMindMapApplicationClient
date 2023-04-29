@@ -80,8 +80,6 @@ export default function Tree({ arr }) {
 
   return (
     <div className="tree-div">
-
-     
         <div>
           {root.children.map((child) => renderTree(child,"rootid"))}
         </div>
