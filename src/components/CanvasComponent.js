@@ -31,7 +31,7 @@ export default function({lines}){
     },[lines])
     return(
         <>
-        <canvas className="canvas2" ref={canvasRef} style={{width:`${canvasSize[0]}px`}}></canvas>
+        <canvas className="canvas2" ref={canvasRef} style={{width:`${canvasSize[0]}px`, height:`${canvasSize}px`}}></canvas>
         </>
     )
 }

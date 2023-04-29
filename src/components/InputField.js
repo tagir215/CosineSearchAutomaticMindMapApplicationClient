@@ -8,8 +8,8 @@ export default function InputField(){
     const [text,setText] = useState("");
     const [initState, setInitState] = useState("starting...");
     const [displayState, setDisplayState] = useState("block");
-    const baseURL = "https://csamma.herokuapp.com";
-    const baseURLlocal = "http://localhost:8080";
+    const baseURLs = "https://csamma.herokuapp.com";
+    const baseURL = "http://localhost:8080";
     const handleChange = function(event){
         setText(event.target.value);
     }
