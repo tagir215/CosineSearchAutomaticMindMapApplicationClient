@@ -26,8 +26,14 @@ export default function Tree({ arr }) {
     for(let i=0; i<nodes.length; i++){
        const parentId = nodes[i].dataset.ref;
        const parentElement = document.getElementById(parentId);
-       if(parentElement==undefined) continue;
-       const rectParent = parentElement.getBoundingClientRect();
+       let rectParent = null;
+       if(parentElement==undefined) {
+        rectParent = nodes[i].getBoundingClientRect()
+        
+       }
+       else{
+         rectParent = parentElement.getBoundingClientRect();
+       }
        if(rectParent==null) continue;
        const rect = nodes[i].getBoundingClientRect();
        newLines.push(new Line(rectParent, rect));
@@ -48,7 +54,7 @@ export default function Tree({ arr }) {
   function calculateMargin(node){
     const baseMargin = 1;
 
-    return baseMargin* node.parent.children.length;
+    return baseMargin* node.parent.children.length*4;
   }
 
   const renderTree = (node,parentId) => {
@@ -57,9 +63,9 @@ export default function Tree({ arr }) {
       <div key={node.name} className="tree-ul">
         <div className="node-container" >
           <span id={id} data-ref={parentId} 
-                className={`ul-name node ${node.children.length!==0 ? "" : "no-children"}`}  
+                className={`ul-name node ${node.children.length!==0 ? "" : "no-children"} ${parentId === "rootid" ? "noparent" : ""}` }  
                 onClick={() =>onClickLink(node)} 
-                style={{paddingLeft:`${calculateMargin(node)}px`}}
+                style={{marginLeft:`${calculateMargin(node)}px`, paddingLeft:"30px"}}
                 >
                 {node.name} 
           </span>
@@ -75,14 +81,11 @@ export default function Tree({ arr }) {
   return (
     <div className="tree-div">
 
-      <div key={root.name} className="tree-ul rootdiv">
-        <div className="node-container" >
-          <span id={"rootid"} data-ref={null} className="rootnode node" >{root.name}</span>
-        </div>
-        <ul>
+     
+        <div>
           {root.children.map((child) => renderTree(child,"rootid"))}
-        </ul>
-      </div>
+        </div>
+     
       <CanvasComponent lines={lines}/>
     </div>
   );

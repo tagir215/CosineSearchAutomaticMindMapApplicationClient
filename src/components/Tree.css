@@ -30,14 +30,22 @@
     align-self: center;
 }
 .rootnode{
-    font-size: 24px;
-    border-bottom: 1px solid var(--secondary-color);
-    margin-right: 200px;
-    padding:10px;
+    margin-left: 100px;
+    margin-right: 0;
     color:var(--secondary-color);
     transform: translateX(50%);
 }
 .tree-ul.rootdiv{
     margin-top:100px;    
     margin-left:10px;
+}
+
+.noparent{
+    padding-left:200px !important;
+    margin-left: -150px;
+}
+.tree-div{
+    margin-top:100px;
+    margin-left:-150px;
+   
 }

@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
       <InputField/>
+      <div className="background"></div>
     </div>
   );
 }

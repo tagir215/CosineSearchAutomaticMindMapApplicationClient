@@ -1,9 +1,21 @@
 :root {
     --primary-color: rgb(0, 0, 0);
     --background-color:rgb(255, 255, 255);
-    --secondary-color:rgb(15, 247, 31);
+    --secondary-color:rgb(231, 36, 36);
+    --line-color:rgb(0, 0, 0);
 }
 body{
+    width: 100%;
     font-weight: bold;
     background: var(--background-color);
+    
+}
+.background{
+    background-image: linear-gradient(to right, #3f95c3 15%, #ffffff 100%);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: -1000;
 }
